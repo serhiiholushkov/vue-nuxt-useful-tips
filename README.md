@@ -4,6 +4,7 @@
 
 - [Useful molules/packages](#useful-modulespackages)
   - [Nuxt ESLint](#nuxt-eslint)
+  - [Prettier](#prettier)
 
 # Useful modules/packages
 
@@ -59,4 +60,62 @@ Add commands to the package.json script section:
     ...
   },
 }
+```
+
+## Prettier
+
+Install:
+
+```bash
+pnpm add -D prettier eslint-config-prettier prettier-plugin-tailwindcss
+```
+
+Create prettier files:
+
+```bash
+node --eval "fs.writeFileSync('.prettierrc','{}\n')"
+node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncoverage\n')"
+```
+
+set configuration in prettierrc, for example:
+
+```typescript
+{
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "endOfLine": "auto"
+}
+```
+
+set ignore config, for example:
+
+```bash
+# Nuxt build output
+.nuxt
+dist
+build
+
+# Test coverage
+coverage
+
+# Node dependencies
+node_modules
+
+# Logs
+*.log
+
+# Env files
+.env
+.env.*
+```
+
+add to package.json script section:
+
+```typescript
+"lint:prettier": "prettier . --check",
 ```
