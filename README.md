@@ -5,6 +5,7 @@
 - [Useful molules/packages](#useful-modulespackages)
   - [Nuxt ESLint](#nuxt-eslint)
   - [Prettier](#prettier)
+  - [Nuxt i18n](#nuxt-i18n)
 
 # Useful modules/packages
 
@@ -70,10 +71,14 @@ Install:
 pnpm add -D prettier eslint-config-prettier eslint-plugin-prettier prettier-plugin-tailwindcss
 ```
 
-add next modulesto nuxt config:
+add file .eslintrc with content:
 
 ```typescript
-'plugin:prettier/recommended', 'prettier';
+{
+  "extends": [
+    "plugin:prettier/recommended"
+  ]
+}
 ```
 
 Create prettier files:
@@ -126,4 +131,26 @@ add to package.json script section:
 
 ```typescript
 "lint:prettier": "prettier . --check",
+"format": "prettier . --write"
 ```
+
+## Nuxt i18n
+
+Install:
+
+```bash
+pnpm add -D @nuxtjs/i18n
+```
+
+Update the nuxt configuration file with:
+
+```typescript
+modules: ['@nuxtjs/i18n'],
+i18n: {
+  locales: [{ code: 'en', name: 'English', file: 'en.json' }],
+  defaultLocale: 'en',
+  langDir: 'locales/',
+},
+```
+
+Add the folder locales and put there en.json, and other translation files.
