@@ -65,6 +65,8 @@ Add commands to the package.json script section:
 
 ## Prettier
 
+[Source](https://prettier.io/docs/install)
+
 Install:
 
 ```bash
@@ -136,6 +138,8 @@ add to package.json script section:
 
 ## Nuxt i18n
 
+[Full configuration](https://i18n.nuxtjs.org/docs/getting-started)
+
 Install:
 
 ```bash
@@ -153,4 +157,6 @@ i18n: {
 },
 ```
 
-Add the folder locales and put there en.json, and other translation files.
+Add the folder i18n/locales/ and put there en.json, and other translation files.
+
+Optional: configure [route strategies](https://i18n.nuxtjs.org/docs/guide) and [Lazy-load translations](https://i18n.nuxtjs.org/docs/guide/lazy-load-translations)
