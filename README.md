@@ -67,7 +67,13 @@ Add commands to the package.json script section:
 Install:
 
 ```bash
-pnpm add -D prettier eslint-config-prettier prettier-plugin-tailwindcss
+pnpm add -D prettier eslint-config-prettier eslint-plugin-prettier prettier-plugin-tailwindcss
+```
+
+add next modulesto nuxt config:
+
+```typescript
+'plugin:prettier/recommended', 'prettier';
 ```
 
 Create prettier files:
@@ -88,7 +94,9 @@ set configuration in prettierrc, for example:
   "trailingComma": "es5",
   "bracketSpacing": true,
   "arrowParens": "avoid",
-  "endOfLine": "auto"
+  "vueIndentScriptAndStyle": true,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "endOfLine": "lf"
 }
 ```
 
