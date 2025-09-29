@@ -6,6 +6,7 @@
   - [Nuxt ESLint](#nuxt-eslint)
   - [Prettier](#prettier)
   - [Nuxt i18n](#nuxt-i18n)
+  - [Nuxt Fonts](#nuxt-fonts)
 
 # Useful modules/packages
 
@@ -160,3 +161,56 @@ i18n: {
 Add the folder i18n/locales/ and put there en.json, and other translation files.
 
 Optional: configure [route strategies](https://i18n.nuxtjs.org/docs/guide) and [Lazy-load translations](https://i18n.nuxtjs.org/docs/guide/lazy-load-translations)
+
+## Nuxt Fonts
+
+install package:
+
+```bash
+pnpm i @nuxt/fonts
+```
+
+add module to nuxt config:
+
+```typescript
+export default defineNuxtConfig({
+  modules: ['@nuxt/fonts'],
+});
+```
+
+add .data to gitignore
+
+choose the font family and add it to the nuxt config, for example:
+
+```typescript
+export default defineNuxtConfig({
+  // ...other config...
+  fonts: {
+    families: [
+      {
+        name: 'Open Sans',
+        provider: 'google',
+        weights: [300, 400, 500, 700, 900],
+      },
+    ],
+  },
+});
+```
+
+use font in main CSS file:
+
+```css
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+```
+
+include global css file that can have many imports into nuxt config:
+
+```typescript
+export default defineNuxtConfig({
+  // ...existing config...
+  css: ['~/assets/css/app.css'],
+  // ...existing config...
+});
+```
