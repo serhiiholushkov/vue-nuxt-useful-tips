@@ -10,6 +10,7 @@
   - [Nuxt SEO](#nuxt-seo)
   - [Nuxt Scripts](#nuxt-scripts)
   - [Nuxt Icons](#nuxt-icons)
+  - [Vee-Validate](#vee-validate)
 
 # Useful modules/packages
 
@@ -17,7 +18,8 @@ Modules/packages that are useful depending on the project needs
 
 ## Nuxt ESLint
 
-Add [Nuxt ESLint](https://eslint.nuxt.com/packages/module)
+[Docs](https://eslint.nuxt.com/packages/module)
+[Module](https://nuxt.com/modules/eslint)
 
 Install dependancies:
 
@@ -69,7 +71,7 @@ Add commands to the package.json script section:
 
 ## Prettier
 
-[Source](https://prettier.io/docs/install)
+[Docs](https://prettier.io/docs/install)
 
 Install:
 
@@ -142,7 +144,8 @@ add to package.json script section:
 
 ## Nuxt i18n
 
-[Source](https://i18n.nuxtjs.org/docs/getting-started)
+[Docs](https://i18n.nuxtjs.org/docs/getting-started)
+[Module](https://nuxt.com/modules/i18n)
 
 Install:
 
@@ -167,7 +170,8 @@ Optional: configure [route strategies](https://i18n.nuxtjs.org/docs/guide) and [
 
 ## Nuxt Fonts
 
-[Source](https://fonts.nuxt.com/get-started/installation)
+[Docs](https://fonts.nuxt.com/get-started/installation)
+[Module](https://nuxt.com/modules/fonts)
 
 install package:
 
@@ -222,7 +226,9 @@ export default defineNuxtConfig({
 
 ## Nuxt SEO
 
-[Source](https://nuxtseo.com/docs/nuxt-seo/getting-started/installation)
+[Docs](https://nuxtseo.com/docs/nuxt-seo/getting-started/installation)
+[Module](https://nuxt.com/modules/seo)
+[Website](https://nuxtseo.com)
 
 Install:
 
@@ -240,13 +246,15 @@ export default defineNuxtConfig({
 
 Go through [usage guide](https://nuxtseo.com/docs/nuxt-seo/guides/using-the-modules)
 
+run: pnpm prep
+
 ## Nuxt Scripts
 
 TODO: https://nuxt.com/modules/scripts
 
 ## Nuxt Icons
 
-[Source](https://nuxt.com/modules/icon)
+[Module](https://nuxt.com/modules/icon)
 
 [Icons list](https://icones.js.org)
 [Iconify list](https://icon-sets.iconify.design)
@@ -302,4 +310,50 @@ const MyIcon = h(Icon, { name: 'uil:twitter' });
 <template>
   <p><MyIcon /></p>
 </template>
+```
+
+## Vee-Validate
+
+[Docs](https://vee-validate.logaretm.com/v4/guide/overview/)
+[Module](https://nuxt.com/modules/vee-validate)
+
+Install:
+
+```bash
+pnpm add @vee-validate/nuxt
+```
+
+add module to nuxt config:
+
+```typescript
+export default defineNuxtConfig({
+  // ...
+  modules: [
+    //...
+    '@vee-validate/nuxt',
+  ],
+});
+```
+
+optionally rename component names:
+
+```typescript
+export default defineNuxtConfig({
+  // ...
+  modules: [
+    //...
+    '@vee-validate/nuxt',
+  ],
+  veeValidate: {
+    // disable or enable auto imports
+    autoImports: true,
+    // Use different names for components
+    componentNames: {
+      Form: 'VeeForm',
+      Field: 'VeeField',
+      FieldArray: 'VeeFieldArray',
+      ErrorMessage: 'VeeErrorMessage',
+    },
+  },
+});
 ```
