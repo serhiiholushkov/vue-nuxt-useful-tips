@@ -247,3 +247,59 @@ TODO: https://nuxt.com/modules/scripts
 ## Nuxt Icons
 
 [Source](https://nuxt.com/modules/icon)
+
+[Icons list](https://icones.js.org)
+[Iconify list](https://icon-sets.iconify.design)
+
+Install:
+
+```bash
+pnpm add -D @nuxt/icon
+```
+
+add the nuxt module to nuxt config:
+
+```typescript
+export default defineNuxtConfig({
+  modules: ['@nuxt/icon'],
+});
+```
+
+When using TailwindCSS v4 with the css mode, you should configure the cssLayer in Nuxt's app config:
+
+```typescript
+// ~/app.config.ts
+export default defineAppConfig({
+  icon: {
+    mode: 'css',
+    cssLayer: 'base',
+  },
+});
+```
+
+add the icon collections you want to nuxt config:
+
+```typescript
+export default defineNuxtConfig({
+  modules: ['@nuxt/icon'],
+  icon: {
+    serverBundle: {
+      collections: ['mdi'],
+    },
+  },
+});
+```
+
+A render function approach could also be used:
+
+```vue
+<script setup>
+import { Icon } from '#components';
+
+const MyIcon = h(Icon, { name: 'uil:twitter' });
+</script>
+
+<template>
+  <p><MyIcon /></p>
+</template>
+```
