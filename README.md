@@ -11,6 +11,7 @@
   - [Nuxt Scripts](#nuxt-scripts)
   - [Nuxt Icons](#nuxt-icons)
   - [Vee-Validate](#vee-validate)
+  - [VueUse](#vueuse)
 
 # Useful modules/packages
 
@@ -355,5 +356,26 @@ export default defineNuxtConfig({
       ErrorMessage: 'VeeErrorMessage',
     },
   },
+});
+```
+
+## VueUse
+
+[Docs](https://vueuse.org/guide/)
+[Module](https://nuxt.com/modules/vueuse)
+[Functions](https://vueuse.org/functions.html)
+
+Install:
+
+```bash
+pnpm add @vueuse/nuxt @vueuse/core
+```
+
+add module to nuxt config:
+
+```typescript
+// nuxt.config
+export default defineNuxtConfig({
+  modules: ['@vueuse/nuxt'],
 });
 ```
