@@ -7,6 +7,7 @@
   - [Prettier](#prettier)
   - [Nuxt i18n](#nuxt-i18n)
   - [Nuxt Fonts](#nuxt-fonts)
+  - [Nuxt Seo](#nuxt-seo)
 
 # Useful modules/packages
 
@@ -139,7 +140,7 @@ add to package.json script section:
 
 ## Nuxt i18n
 
-[Full configuration](https://i18n.nuxtjs.org/docs/getting-started)
+[Source](https://i18n.nuxtjs.org/docs/getting-started)
 
 Install:
 
@@ -163,6 +164,8 @@ Add the folder i18n/locales/ and put there en.json, and other translation files.
 Optional: configure [route strategies](https://i18n.nuxtjs.org/docs/guide) and [Lazy-load translations](https://i18n.nuxtjs.org/docs/guide/lazy-load-translations)
 
 ## Nuxt Fonts
+
+[Source](https://fonts.nuxt.com/get-started/installation)
 
 install package:
 
@@ -214,3 +217,23 @@ export default defineNuxtConfig({
   // ...existing config...
 });
 ```
+
+## Nuxt SEO
+
+[Source](https://nuxtseo.com/docs/nuxt-seo/getting-started/installation)
+
+Install:
+
+```bash
+pnpm i @nuxtjs/seo
+```
+
+add the nuxt module to nuxt config:
+
+```typescript
+export default defineNuxtConfig({
+  modules: ['@nuxtjs/seo'],
+});
+```
+
+Go through [usage guide](https://nuxtseo.com/docs/nuxt-seo/guides/using-the-modules)
