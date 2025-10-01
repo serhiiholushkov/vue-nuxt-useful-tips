@@ -398,6 +398,9 @@ pnpm add -D typescript
 pnpm add tailwindcss @nuxtjs/tailwindcss@7.0.0-beta.0
 ```
 
+Note: using beta because nuxt tw v6 is for tailwind v3.
+Other option is to use @tailwindcss/vite with some manual configuration.
+
 For Nuxt v4 add: app/assets/css/tailwind.css
 
 Replace everything in tailwind.css with the following:
@@ -462,6 +465,20 @@ Run the CLI:
 
 ```bash
 pnpm dlx shadcn-vue@latest init
+```
+
+if there is an error: No import alias found in your tsconfig.json file.
+add next config to tsconfig.json
+
+```json
+"compilerOptions": {
+  "baseUrl": ".",
+  "paths": {
+    "@/*": [
+      "./*"
+    ]
+  }
+}
 ```
 
 Add Components:
