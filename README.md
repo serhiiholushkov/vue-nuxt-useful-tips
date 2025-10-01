@@ -12,6 +12,7 @@
   - [Nuxt Icons](#nuxt-icons)
   - [Vee-Validate](#vee-validate)
   - [VueUse](#vueuse)
+  - [TailwindCss and Shadcn-vue](#tailwindcss-and-shadcn-vue)
 
 # Useful modules/packages
 
@@ -378,4 +379,93 @@ add module to nuxt config:
 export default defineNuxtConfig({
   modules: ['@vueuse/nuxt'],
 });
+```
+
+## TailwindCss and Shadcn-vue
+
+TailwindCSS Nuxt:
+[Docs](https://tailwindcss.nuxtjs.org/getting-started/installation)
+[Module](https://nuxt.com/modules/tailwindcss)
+
+Shadcn-vue:
+[Docs](https://www.shadcn-vue.com/docs/installation/nuxt.html)
+[Module](https://nuxt.com/modules/shadcn)
+
+Install:
+
+```bash
+pnpm add -D typescript
+pnpm add tailwindcss @nuxtjs/tailwindcss@7.0.0-beta.0
+```
+
+For Nuxt v4 add: app/assets/css/tailwind.css
+
+Replace everything in tailwind.css with the following:
+
+```css
+@import 'tailwindcss';
+```
+
+add nuxt module to nuxt config:
+
+```typescript
+export default defineNuxtConfig({
+  modules: ['@nuxtjs/tailwindcss'],
+});
+```
+
+Install shadcn-vue:
+
+```bash
+pnpm install
+pnpm dlx nuxi@latest module add shadcn-nuxt
+```
+
+Add a Nuxt Plugin for providing ssrWidth
+For Nuxt v4: app/plugins/ssr-width.ts
+
+```typescript
+import { provideSSRWidth } from '@vueuse/core';
+
+export default defineNuxtPlugin((nuxtApp) => {
+  provideSSRWidth(1024, nuxtApp.vueApp);
+});
+```
+
+Configure nuxt.config.ts:
+
+```typescript
+export default defineNuxtConfig({
+  // ...
+  modules: ['shadcn-nuxt'],
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui',
+  },
+});
+```
+
+Run Nuxt Prepare:
+
+```bash
+pnpm dlx nuxi prepare
+```
+
+Run the CLI:
+
+```bash
+pnpm dlx shadcn-vue@latest init
+```
+
+Add Components:
+
+```bash
+pnpm dlx shadcn-vue@latest add button
 ```
