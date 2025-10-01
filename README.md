@@ -7,7 +7,9 @@
   - [Prettier](#prettier)
   - [Nuxt i18n](#nuxt-i18n)
   - [Nuxt Fonts](#nuxt-fonts)
-  - [Nuxt Seo](#nuxt-seo)
+  - [Nuxt SEO](#nuxt-seo)
+  - [Nuxt Scripts](#nuxt-scripts)
+  - [Nuxt Icons](#nuxt-icons)
 
 # Useful modules/packages
 
@@ -237,3 +239,11 @@ export default defineNuxtConfig({
 ```
 
 Go through [usage guide](https://nuxtseo.com/docs/nuxt-seo/guides/using-the-modules)
+
+## Nuxt Scripts
+
+TODO: https://nuxt.com/modules/scripts
+
+## Nuxt Icons
+
+[Source](https://nuxt.com/modules/icon)
