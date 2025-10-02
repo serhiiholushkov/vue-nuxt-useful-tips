@@ -238,6 +238,9 @@ Install:
 pnpm i @nuxtjs/seo
 ```
 
+Important!: @nuxtjs/seo versions 3.2.0 - 3.2.2 has issue of Nuxt dev server freezing! Downgrade to 3.1.0.
+[Github issue](https://github.com/harlan-zw/nuxt-seo/issues/478)
+
 add the nuxt module to nuxt config:
 
 ```typescript
