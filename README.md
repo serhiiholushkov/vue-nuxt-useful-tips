@@ -58,6 +58,36 @@ export default withNuxt();
 // }
 ```
 
+For instance, disable multi word component names:
+
+```typescript
+import withNuxt from './.nuxt/eslint.config.mjs';
+
+export default {
+  ...withNuxt(),
+  rules: {
+    'vue/multi-word-component-names': 'off',
+  },
+};
+
+// or this is according to the nuxt eslint docs approach
+
+import { createConfigForNuxt } from '@nuxt/eslint-config';
+
+export default createConfigForNuxt({
+  // options here
+})
+  .prepend
+  // ...Prepend some flat configs in front
+  ()
+  // Override some rules in a specific config, based on their name
+  .override('nuxt/typescript', {
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
+  });
+```
+
 Add commands to the package.json script section:
 
 ```typescript
@@ -264,6 +294,8 @@ TODO: https://nuxt.com/modules/scripts
 [Icons list](https://icones.js.org)
 [Iconify list](https://icon-sets.iconify.design)
 
+!Important: [Shadcn-vue](#tailwindcss-and-shadcn-vue) installs [lucide-vue-next](https://lucide.dev/icons/) as dependency so don't bring Nuxt Icons into the project if you use Shadcn.
+
 Install:
 
 ```bash
@@ -412,6 +444,12 @@ Replace everything in tailwind.css with the following:
 @import 'tailwindcss';
 ```
 
+include tailwind css into app.css:
+
+```css
+@import './tailwind.css';
+```
+
 add nuxt module to nuxt config:
 
 ```typescript
@@ -470,6 +508,8 @@ Run the CLI:
 pnpm dlx shadcn-vue@latest init
 ```
 
+This will bring [Lucide icons](https://lucide.dev/icons/) package, so no need to add any other icons to the project.
+
 if there is an error: No import alias found in your tsconfig.json file.
 add next config to tsconfig.json
 
@@ -482,6 +522,27 @@ add next config to tsconfig.json
     ]
   }
 }
+```
+
+Add tailwind.config.ts:
+
+```typescript
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  content: [
+    './app/**/*.{vue,js,ts}',
+    './components/**/*.{vue,js,ts}',
+    './pages/**/*.{vue,js,ts}',
+    './lib/**/*.{js,ts}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+export default config;
 ```
 
 Add Components:
