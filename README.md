@@ -197,7 +197,7 @@ i18n: {
 },
 ```
 
-Add the folder i18n/locales/ and put there en.json, and other translation files.
+Add the folder i18n/locales/ in the project root and put there en.json, and other translation files.
 
 Optional: configure [route strategies](https://i18n.nuxtjs.org/docs/guide) and [Lazy-load translations](https://i18n.nuxtjs.org/docs/guide/lazy-load-translations)
 
