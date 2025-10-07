@@ -13,6 +13,7 @@
   - [Vee-Validate](#vee-validate)
   - [VueUse](#vueuse)
   - [TailwindCss and Shadcn-vue](#tailwindcss-and-shadcn-vue)
+  - [Nuxt UI](#nuxt-ui)
 
 # Useful modules/packages
 
@@ -549,4 +550,76 @@ Add Components:
 
 ```bash
 pnpm dlx shadcn-vue@latest add button
+```
+
+## Nuxt UI
+
+[Docs](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+[Module](https://nuxt.com/modules/ui)
+
+Quick start:
+
+```bash
+pnpm create nuxt@latest -t ui
+```
+
+Or go through full installation process below
+
+Install:
+
+```bash
+pnpm add @nuxt/ui
+```
+
+Add the Nuxt UI module in your nuxt.config.ts
+
+```typescript
+export default defineNuxtConfig({
+  modules: ['@nuxt/ui'],
+});
+```
+
+Import Tailwind CSS and Nuxt UI in your CSS
+
+main.css:
+
+```css
+@import 'tailwindcss';
+@import '@nuxt/ui';
+```
+
+nuxt.config.ts:
+
+```typescript
+export default defineNuxtConfig({
+  modules: ['@nuxt/ui'],
+  css: ['~/assets/css/main.css'],
+});
+```
+
+It's recommended to install the Tailwind CSS IntelliSense extension for VSCode and add the following settings:
+
+```json
+{
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": ["class", "ui"],
+  "tailwindCSS.experimental.classRegex": [
+    ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
+}
+```
+
+Wrap your app with App component:
+
+```vue
+<template>
+  <UApp>
+    <NuxtPage />
+  </UApp>
+</template>
 ```
